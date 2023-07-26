@@ -8,5 +8,5 @@ processes:
     port: 8108
     ssl: false
     public: true
-    external_domain_prefix: 'test_typesense'
-    internal_domain_prefix: "test_typesense"
+    external_domain_prefix: 'test-typesense'
+    internal_domain_prefix: "test-typesense"
