@@ -1,0 +1,26 @@
+name: test_docker_compose
+base_image: language/buster/node_14
+team: devex
+processes:
+  web: &web_process
+    cmd:
+      - docker run -i -p 8108:8108 -v`pwd`/typesense-server-data/:/data typesense/typesense:0.22.0.rcu6 --data-dir /data --api-key=xyz --listen-port 8108 --enable-cors
+
+    port: 8108
+    ssl: false
+    public: true
+    external_domain_prefix: 'test_typesense'
+
+########################################################################################################################
+# Dev Env Configuration
+########################################################################################################################
+depends_on:
+  - apps
+
+environments:
+  development:
+    processes:
+      web:
+        <<: *web_process
+        mem_limit: 256m     
+          
