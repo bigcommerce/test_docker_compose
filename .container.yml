@@ -1,4 +1,4 @@
-name: test_docker_compose
+name: test-docker-compose
 base_image: language/buster/node_16
 team: devex
 processes:
