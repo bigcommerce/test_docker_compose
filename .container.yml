@@ -9,4 +9,4 @@ processes:
     ssl: false
     public: true
     external_domain_prefix: 'test-typesense'
-    internal_domain_prefix: "test-typesense"
+    internal_domain_prefix: 'test-typesense'
