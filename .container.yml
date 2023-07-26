@@ -1,5 +1,5 @@
 name: test-docker-compose
-base_image: language/buster/node_16
+base_image: language/buster/node_14
 team: devex
 processes:
   web: &web_process
