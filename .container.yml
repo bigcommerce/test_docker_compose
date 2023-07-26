@@ -4,8 +4,8 @@ team: devex
 processes:
   web: &web_process
     cmd:
-      - docker run -i -p 8108:8108 -v`pwd`/typesense-server-data/:/data typesense/typesense:0.22.0.rcu6 --data-dir /data --api-key=xyz --listen-port 8108 --enable-cors
-    port: 8108
+      - docker-compose up
+    port: 3000
     ssl: false
     public: true
     external_domain_prefix: 'test-typesense'
