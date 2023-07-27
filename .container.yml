@@ -1,12 +1,14 @@
 name: test-docker-compose
-base_image: language/buster/node_14
+base_image: language/buster/node_16
 team: devex
 processes:
-  web: &web_process
-    cmd:
-      - docker-compose up
-    port: 3000
-    ssl: false
-    public: true
-    external_domain_prefix: 'test-typesense'
-    internal_domain_prefix: 'test-typesense'
+  typesense: &typesense_process
+    # arm64
+    - sh
+    - -c
+    - |
+      curl -O https://dl.typesense.org/releases/0.24.1/typesense-server-0.24.1-linux-arm64.tar.gz
+      tar -xzf typesense-server-0.24.1-linux-arm64.tar.gz
+      export TYPESENSE_API_KEY=xyz
+      mkdir /app/typesense-data 
+      ./typesense-server --data-dir=/app/typesense-data --api-key=$TYPESENSE_API_KEY --enable-cors
